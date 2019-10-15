@@ -27,5 +27,7 @@ public class TestDaoTest {
 
     @Test
     public void delete() {
+        int a = 1;
+        Assert.assertEquals(0,a);
     }
 }
