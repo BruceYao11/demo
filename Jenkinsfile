@@ -1,14 +1,16 @@
 pipeline {
   agent any
   stages {
-    stage('git') {
+    stage('Build') {
       steps {
         git(url: 'git@github.com:BruceYao11/demo.git', branch: 'master', changelog: true)
+        bat 'mvn clean install'
       }
     }
-    stage('test') {
+    stage('Test') {
       steps {
-        bat 'mvn test'
+        jacoco()
+        waitForQualityGate true
       }
     }
   }
