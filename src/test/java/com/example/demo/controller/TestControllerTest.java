@@ -48,7 +48,7 @@ public class TestControllerTest {
 
     @Test
     public void listStudent() throws Exception {
-        MvcResult result = mockMvc.perform(get("/list")
+        MvcResult result = mockMvc.perform(get("/demo/list")
                 .contentType(MediaType.APPLICATION_JSON_VALUE)
                 .cookie(new Cookie("vms.cookie.id","1328012")))
                 .andExpect(status().isOk())
@@ -60,7 +60,7 @@ public class TestControllerTest {
 
     @Test
     public void delStudent() throws Exception {
-        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/delete/{id}","1")
+        MockHttpServletRequestBuilder requestBuilder = MockMvcRequestBuilders.get("/demo/delete/{id}","1")
                 .param("id", "1")
                 .characterEncoding("utf-8")
                 .accept(MediaType.APPLICATION_JSON_UTF8_VALUE);
