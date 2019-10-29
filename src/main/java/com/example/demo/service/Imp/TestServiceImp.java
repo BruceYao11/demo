@@ -23,4 +23,14 @@ public class TestServiceImp implements TestService {
     public int delete(int id) {
         return testDao.delete(id);
     }
+
+    @Override
+    public int insert(Student student) {
+        return testDao.insert(student);
+    }
+
+    @Override
+    public int update(Student student) {
+        return testDao.update(student);
+    }
 }

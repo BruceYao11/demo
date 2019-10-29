@@ -7,13 +7,13 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 @RunWith(SpringRunner.class)
 @SpringBootTest
+@Transactional
 public class TestDaoTest {
 
     @Autowired
@@ -27,8 +27,27 @@ public class TestDaoTest {
 
     @Test
     public void delete() {
-        int a = 1;
-        int b = 3;
-        Assert.assertEquals(1, a);
+        int result = testDao.delete(1);
+        Assert.assertEquals(1,result);
+    }
+
+    @Test
+    public void insert() {
+        Student student = new Student();
+        student.setId(10);
+        student.setAge(20);
+        student.setName("Boss");
+        int result = testDao.insert(student);
+        Assert.assertEquals(1,result);
+    }
+
+    @Test
+    public void update() {
+        Student student = new Student();
+        student.setId(1);
+        student.setAge(20);
+        student.setName("Boss");
+        int result = testDao.update(student);
+        Assert.assertEquals(1,result);
     }
 }

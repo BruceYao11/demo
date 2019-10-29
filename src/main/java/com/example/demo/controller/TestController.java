@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
+@RequestMapping("/demo")
 public class TestController {
 
     @Autowired
@@ -24,12 +25,22 @@ public class TestController {
 
 
     @RequestMapping("/list")
-    public List<Student> listStudent(HttpServletResponse response, HttpServletRequest request){
+    public List<Student> listStudent(){
         return testService.findall();
     }
 
     @RequestMapping("/delete/{id}")
-    public void delStudent(@PathVariable("id") int id){
-        testService.delete(id);
+    public int delStudent(@PathVariable("id") int id){
+        return testService.delete(id);
+    }
+
+    @RequestMapping("/insert")
+    public int insertStudent(Student student){
+        return testService.insert(student);
+    }
+
+    @RequestMapping("/update")
+    public int updateStudent(Student student){
+        return testService.update(student);
     }
 }

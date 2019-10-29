@@ -10,7 +10,9 @@ import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.util.Properties;
 
-
+/**
+ * mycat多租户拦截器
+ */
 @Intercepts(value = {
         @Signature(type = StatementHandler.class,
                 method = "prepare",
