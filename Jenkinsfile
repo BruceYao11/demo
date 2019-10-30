@@ -28,7 +28,7 @@ pipeline {
     stage("build") {
       steps{
         echo "starting build..."
-        bat "mvn clean install"
+        bat "mvn clean install -Dmaven.test.skip=true"
       }
     }
   }
