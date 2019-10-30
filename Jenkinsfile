@@ -20,7 +20,7 @@ pipeline {
       steps{
         echo "starting codeAnalyze with SonarQube..."
         withSonarQubeEnv('sonar') {
-          sh "mvn -f pom.xml clean compile sonar:sonar"
+          bat "mvn -f pom.xml clean compile sonar:sonar"
         }
       }
     }
