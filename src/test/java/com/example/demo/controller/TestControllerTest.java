@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import org.apache.shiro.session.mgt.eis.JavaUuidSessionIdGenerator;
+import org.json.JSONObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -68,7 +69,7 @@ public class TestControllerTest {
         ResultActions result = mockMvc.perform(requestBuilder);
 
         result.andExpect(MockMvcResultMatchers.status().isOk())
-                .andDo(MockMvcResultHandlers.print())   ;
+                .andDo(MockMvcResultHandlers.print());
     }
 
 }
