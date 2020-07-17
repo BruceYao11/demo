@@ -23,8 +23,8 @@ public class MycatTenantInterceptor implements Interceptor {
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
-        StatementHandler statementHandler=(StatementHandler)invocation.getTarget();
-        MetaObject metaStatementHandler= SystemMetaObject.forObject(statementHandler);
+        StatementHandler statementHandler = (StatementHandler)invocation.getTarget();
+        MetaObject metaStatementHandler = SystemMetaObject.forObject(statementHandler);
         Object object=null;
         //分离代理对象链
         while(metaStatementHandler.hasGetter("h")){

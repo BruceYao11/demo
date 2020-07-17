@@ -18,12 +18,6 @@ public class TestController {
     @Autowired
     private TestServiceImp testService;
 
-    @RequestMapping("/test")
-    public String test(){
-        return "1";
-    }
-
-
     @RequestMapping("/list")
     public List<Student> listStudent(){
         return testService.findall();
@@ -35,7 +29,7 @@ public class TestController {
     }
 
     @RequestMapping("/insert")
-    public int insertStudent(Student student){
+    public int insertStudent(Student student) {
         return testService.insert(student);
     }
 
